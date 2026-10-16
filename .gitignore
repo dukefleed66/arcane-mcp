@@ -1,0 +1,11 @@
+node_modules/
+*.log
+.env
+.env.*
+config.json
+api-key
+*.key
+*.pem
+*.crt
+*.tmp-*
+.DS_Store

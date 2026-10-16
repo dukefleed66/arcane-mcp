@@ -1,0 +1,7 @@
+{
+  "url": "https://arcane.example.com",
+  "apiKeyFile": "~/.config/arcane-mcp/api-key",
+  "caFile": "~/.config/arcane-mcp/ca.crt",
+  "connectAddress": "192.0.2.10",
+  "localImagePrefixes": ["registry.example.com/mine/"]
+}

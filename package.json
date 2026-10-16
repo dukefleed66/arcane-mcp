@@ -1,0 +1,35 @@
+{
+  "name": "arcane-mcp",
+  "version": "0.3.0",
+  "description": "Security-first MCP server for managing Docker through the Arcane API",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dukefleed66/arcane-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dukefleed66/arcane-mcp/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "mcp",
+    "arcane",
+    "docker",
+    "model-context-protocol"
+  ],
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "update-schema": "node scripts/update-schema.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "ajv": "8.20.0",
+    "zod": "4.6.7"
+  }
+}
