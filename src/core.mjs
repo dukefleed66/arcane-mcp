@@ -148,8 +148,8 @@ export function redact(value, key = '') {
   if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([k,v]) => [k, sensitive.test(k) ? '[REDACTED]' : redact(v, key)]));
   if (typeof value !== 'string') return value;
   let text = key ? value.split(key).join('[REDACTED]') : value;
-  text = text.replace(/(\b[\w.-]*(?:PASSWORD|PASSWD|SECRET|TOKEN|API_KEY|APIKEY|PRIVATE_KEY)[\w.-]*\s*[:=]\s*)([^\n,}]+)/gi, '$1[REDACTED]');
-  text = text.replace(/(https?:\/\/)[^\s/@]+:[^\s/@]+@/g, '$1[REDACTED]@');
+  text = text.replace(/((?:PASSWORD|PASSWD|SECRET|TOKEN|API_KEY|APIKEY|PRIVATE_KEY)[\w.-]{0,64}\s*[:=]\s*)([^\n,}]+)/gi, '$1[REDACTED]');
+  text = text.replace(/(https?:\/\/)[^\s/@:]+:[^\s/@]+@/g, '$1[REDACTED]@');
   return text;
 }
 

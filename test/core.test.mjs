@@ -173,3 +173,11 @@ test('drift flags changed write contracts, not version-only releases',()=>{
     assert.equal(d.needsReview,true);assert(d.blockedMutations.includes('restart-container'));
   } finally {installSchema(approved);}
 });
+
+test('redaction stays fast on hostile input and still masks secrets',()=>{
+  const start=Date.now();
+  redact({a:'PASSWORD'.repeat(50000),b:'http://'+'a:'.repeat(200000),c:'x'.repeat(1000000)});
+  assert(Date.now()-start<2000,'redaction must be linear');
+  assert.equal(redact({v:'DB_PASSWORD=hunter2 ok'}).v,'DB_PASSWORD=[REDACTED]');
+  assert.equal(redact({v:'see https://user:pw@host/x'}).v,'see https://[REDACTED]@host/x');
+});
