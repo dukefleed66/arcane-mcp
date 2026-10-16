@@ -56,7 +56,7 @@ The server refuses to start a request if the key file is readable by group or ot
 npm run smoke -- --live
 ```
 
-Expected: `MCP handshake OK; 7 tools`, an `arcane_connection` result with `"status":"UP"` and `catalog.verified: true`, then a few read-only list calls. This command changes nothing.
+This needs the configuration from step 4 and a reachable Arcane. Expected: `MCP handshake OK; 7 tools`, an `arcane_connection` result with `"status":"UP"` and `catalog.verified: true`, then a few read-only list calls. This command changes nothing.
 
 ## 6. Register with your MCP client
 

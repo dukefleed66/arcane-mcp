@@ -17,5 +17,4 @@ jobs:
         with: { node-version: "${{ matrix.node }}" }
       - run: npm ci --ignore-scripts
       - run: npm test
-      - run: npm run smoke
       - run: npm audit --omit=dev --audit-level=high

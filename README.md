@@ -125,8 +125,8 @@ Recommendations: use a dedicated API key you can revoke; put Arcane behind HTTPS
 ```bash
 npm ci --ignore-scripts
 npm test                      # unit tests, no network needed (uses a temporary loopback HTTPS server; needs openssl)
-npm run smoke                 # MCP handshake and discovery
-npm run smoke -- --live       # also tests your configured Arcane; read-only
+npm run smoke                 # MCP handshake and discovery; needs your configuration and a reachable Arcane
+npm run smoke -- --live       # also lists environments, containers, projects and images; read-only
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). Please never include real host names, addresses or keys in issues, tests or fixtures.
